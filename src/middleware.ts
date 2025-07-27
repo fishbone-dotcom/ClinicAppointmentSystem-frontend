@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose'
 
 export async function middleware(request: NextRequest) {
-  let token = request.cookies.get('token');
+  const token = request.cookies.get('token')?.value;
   const secret = new TextEncoder().encode('super_secret_key');
 
   if (!token) {
@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    await jwtVerify(token.value, secret);
+    await jwtVerify(token, secret);
   } catch (err) {
     console.log('err: ', err);
     console.error('Invalid token:', err);

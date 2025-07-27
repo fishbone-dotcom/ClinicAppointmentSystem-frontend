@@ -12,7 +12,6 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-
     setEmail('')
 
 
@@ -26,13 +25,12 @@ export default function LoginPage() {
         credentials: 'include'
       });
 
-
       const data = await res.json();
-      console.log('data: ', data);
 
       if (res.ok && res.status == 200) {
         // You can save token or user info in localStorage or cookie
         localStorage.setItem('user', JSON.stringify(data.user));
+        document.cookie = `token=${data.token}; path=/; secure; samesite=lax`;
         // ✅ redirect to dashboard
         router.push('/dashboard');
       } else {
