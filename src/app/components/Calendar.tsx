@@ -5,10 +5,11 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import dayjs, { Dayjs } from 'dayjs';
 
 type CalendarProps = {
+  selectedDate: Dayjs;
   onSelectDate?: (date: Dayjs) => void;
 };
 
-export default function Calendar({ onSelectDate }: CalendarProps) {
+export default function Calendar({ selectedDate, onSelectDate }: CalendarProps) {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
   const [selectedDay, setSelectedDay] = useState<Dayjs | null>(null);
 

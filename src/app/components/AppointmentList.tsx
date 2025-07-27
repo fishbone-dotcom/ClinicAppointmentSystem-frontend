@@ -1,8 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import dayjs, { Dayjs } from 'dayjs';
 
-export default function AppointmentList() {
+export type AppointmentListProps = {
+  selectedDate: Dayjs;
+};
+
+export default function AppointmentList({ selectedDate }: AppointmentListProps) {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
