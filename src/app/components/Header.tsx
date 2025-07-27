@@ -28,6 +28,7 @@ export default function Header() {
   }
     // ✅ You can also remove cookies/localStorage here
     localStorage.removeItem('user');
+    document.cookie = `token=; path=/; secure; samesite=lax`;
     router.push('/login');
   };
 
