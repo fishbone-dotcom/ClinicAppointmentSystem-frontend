@@ -28,6 +28,7 @@ export default function LoginPage() {
 
 
       const data = await res.json();
+      console.log('data: ', data);
 
       if (res.ok && res.status == 200) {
         // You can save token or user info in localStorage or cookie
