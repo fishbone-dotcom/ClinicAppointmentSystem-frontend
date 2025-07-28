@@ -20,7 +20,7 @@ const PatientsPage = () => {
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/patients/details', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/patients/details`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' }
         });

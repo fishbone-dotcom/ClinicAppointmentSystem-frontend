@@ -23,7 +23,7 @@ const AppointmentsPage = () => {
         if (status === 'Pending') params.StatusId = 1;
         if (status === 'Confirmed') params.StatusId = 2;
 
-        const res = await fetch('http://localhost:3000/api/appointments/details', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/appointments/details`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ params }),

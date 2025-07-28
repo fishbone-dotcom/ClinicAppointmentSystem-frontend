@@ -19,7 +19,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-    await fetch('http://localhost:3000/api/logout', {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/logout`, {
       method: 'POST',
       credentials: 'include', // important to include cookies
     });

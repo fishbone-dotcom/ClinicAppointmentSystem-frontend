@@ -13,7 +13,7 @@ export default function ChangePasswordPage() {
     e.preventDefault();
     setMessage('');
 
-    const res = await fetch('http://localhost:3000/api/change_password', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/change_password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, oldPassword, newPassword }),

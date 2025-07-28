@@ -29,7 +29,7 @@ export default function StatsCards({ selectedDate }: StatsCardsProps) {
           Date: selectedDate.format('MM/DD/YYYY')
         };
 
-        const res = await fetch('https://clinicappointmentsystem2.onrender.com/api/dashboard/get_appointment_stats', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/get_appointment_stats`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ params }),

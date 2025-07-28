@@ -13,7 +13,7 @@ export default function AppointmentList({ selectedDate }: AppointmentListProps) 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const res = await fetch('https://clinicappointmentsystem2.onrender.com/dashboard/get_appointment_upcoming');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/get_appointment_upcoming`);
         const data = await res.json();
         setAppointments(data?.data || []);
       } catch (err) {

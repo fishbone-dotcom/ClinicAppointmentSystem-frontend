@@ -26,7 +26,7 @@ export default function NewAppointmentModal({
     if (isOpen) {
       const fetchPatients = async () => {
         try {
-          const res = await fetch('http://localhost:3000/api/patients/get_patient_look_ups');
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/patients/get_patient_look_ups`);
           const json = await res.json();
           setPatients(json.data); // tama ba ang path mo sa response?
         } catch (err) {
@@ -37,7 +37,7 @@ export default function NewAppointmentModal({
 
       const fetchClinics = async () => {
         try {
-          const res = await fetch('http://localhost:3000/api/clinics/get_clinic_look_ups');
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/clinics/get_clinic_look_ups`);
           const json = await res.json();
           setClinics(json.data); // tama ba ang path mo sa response?
         } catch (err) {
@@ -48,7 +48,7 @@ export default function NewAppointmentModal({
 
       const fetchStatus = async () => {
         try {
-          const res = await fetch('http://localhost:3000/api/appointments/get_appointment_look_ups');
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/appointments/get_appointment_look_ups`);
           const json = await res.json();
           console.log('json: ', json);
           setStatus(json.data); // tama ba ang path mo sa response?
@@ -74,7 +74,7 @@ export default function NewAppointmentModal({
     }
 
     try {
-      const res = await fetch('http://localhost:3000/api/appointments/save', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/appointments/save`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ patientId, clinicId, statusId, date, time, reason }),

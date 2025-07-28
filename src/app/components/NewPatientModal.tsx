@@ -33,7 +33,7 @@ export default function NewPatientModal({
     }
 
     try {
-      const res = await fetch('http://localhost:3000/api/patients/save', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/patients/save`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email, phone }),
