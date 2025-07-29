@@ -36,13 +36,13 @@ export default function AppointmentList({ selectedDate }: AppointmentListProps) 
         <ul className="space-y-3">
           {appointments.map((appt) => (
             <li
-              key={appt.Id}
+              key={appt.id}
               className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition rounded-lg px-4 py-3"
             >
               <div className="text-sm">
-                <p className="font-semibold text-gray-800">{appt.Patient}</p>
+                <p className="font-semibold text-gray-800">{appt.patient}</p>
                 <p className="text-gray-500 text-xs">
-                  {appt.Date} • {appt.Time}
+                  {appt.Date} • {appt.time}
                 </p>
               </div>
               <span className="text-blue-600 text-xs font-medium">

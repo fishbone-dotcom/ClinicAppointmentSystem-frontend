@@ -83,14 +83,14 @@ const PatientsPage = () => {
               <tbody>
                 {patients.length > 0 ? (
                   patients.map((patient) => (
-                    <tr key={patient.Id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150">
+                    <tr key={patient.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150">
                       <td className="py-3 px-4">{patient.FormalName ?? `${patient.FirstName} ${patient.LastName}`}</td>
                       <td className="py-3 px-4">{patient.Email || 'N/A'}</td>
                       <td className="py-3 px-4">{patient.Phone || 'N/A'}</td>
                     </tr>
                   ))
                 ) : (
-                  <tr>
+                  <tr key={0}>
                     <td colSpan={3} className="py-6 text-center text-gray-500">
                       No patients found.
                     </td>
@@ -104,7 +104,7 @@ const PatientsPage = () => {
           <div className="md:hidden flex flex-col gap-4">
             {patients.length > 0 ? (
               patients.map((patient) => (
-                <div key={patient.Id} className="border rounded-lg p-4 bg-white shadow-sm">
+                <div key={patient.id} className="border rounded-lg p-4 bg-white shadow-sm">
                   <p className="font-semibold text-gray-800">
                     {patient.FormalName ?? `${patient.FirstName} ${patient.LastName}`}
                   </p>

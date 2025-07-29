@@ -109,21 +109,21 @@ const AppointmentsPage = () => {
                   </thead>
                   <tbody>
                     {appointments.map((appointment) => (
-                      <tr key={appointment.Id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150">
-                        <td className="py-3 px-4 text-gray-800">{appointment.Patient}</td>
-                        <td className="py-3 px-4 text-gray-800">{appointment.Date}</td>
-                        <td className="py-3 px-4 text-gray-800">{appointment.Time}</td>
+                      <tr key={appointment.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150">
+                        <td className="py-3 px-4 text-gray-800">{appointment.patient}</td>
+                        <td className="py-3 px-4 text-gray-800">{appointment.date}</td>
+                        <td className="py-3 px-4 text-gray-800">{appointment.time}</td>
                         <td className="py-3 px-4">
                           <span
                             className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${
-                              appointment.Status === 'Confirmed'
+                              appointment.status === 'Confirmed'
                                 ? 'bg-blue-100 text-blue-800'
-                                : appointment.Status === 'Pending'
+                                : appointment.status === 'Pending'
                                 ? 'bg-yellow-100 text-yellow-800'
                                 : ''
                             }`}
                           >
-                            {appointment.Status}
+                            {appointment.status}
                           </span>
                         </td>
                       </tr>
@@ -136,7 +136,7 @@ const AppointmentsPage = () => {
             {/* Mobile card view */}
             <div className="md:hidden flex flex-col space-y-4">
               {appointments.map((appointment) => (
-                <div key={appointment.Id} className="border rounded-lg p-4 shadow-sm bg-white">
+                <div key={appointment.id} className="border rounded-lg p-4 shadow-sm bg-white">
                   <p className="font-semibold">{appointment.Patient}</p>
                   <p className="text-sm text-gray-600">
                     {appointment.Date} at {appointment.Time}
