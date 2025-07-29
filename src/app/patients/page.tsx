@@ -4,13 +4,10 @@ import Header from '../components/Header';
 import NewPatientModal from '@/app/components/NewPatientModal';
 
 interface Patient {
-  Id: number;
-  FirstName: string;
-  LastName: string;
-  FormalName?: string;
-  Email: string | null;
-  Phone: string | null;
-  CreatedAt: string;
+  id: number;
+  formal_name: string;
+  email: string | null;
+  phone: string | null;
 }
 
 const PatientsPage = () => {
@@ -84,9 +81,9 @@ const PatientsPage = () => {
                 {patients.length > 0 ? (
                   patients.map((patient) => (
                     <tr key={patient.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150">
-                      <td className="py-3 px-4">{patient.FormalName ?? `${patient.FirstName} ${patient.LastName}`}</td>
-                      <td className="py-3 px-4">{patient.Email || 'N/A'}</td>
-                      <td className="py-3 px-4">{patient.Phone || 'N/A'}</td>
+                      <td className="py-3 px-4">{patient.formal_name}</td>
+                      <td className="py-3 px-4">{patient.email || 'N/A'}</td>
+                      <td className="py-3 px-4">{patient.phone || 'N/A'}</td>
                     </tr>
                   ))
                 ) : (
@@ -106,10 +103,10 @@ const PatientsPage = () => {
               patients.map((patient) => (
                 <div key={patient.id} className="border rounded-lg p-4 bg-white shadow-sm">
                   <p className="font-semibold text-gray-800">
-                    {patient.FormalName ?? `${patient.FirstName} ${patient.LastName}`}
+                    {patient.formal_name || 'N/A'}
                   </p>
-                  <p className="text-sm text-gray-600">Email: {patient.Email || 'N/A'}</p>
-                  <p className="text-sm text-gray-600">Phone: {patient.Phone || 'N/A'}</p>
+                  <p className="text-sm text-gray-600">Email: {patient.email || 'N/A'}</p>
+                  <p className="text-sm text-gray-600">Phone: {patient.phone || 'N/A'}</p>
                 </div>
               ))
             ) : (
