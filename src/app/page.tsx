@@ -1,35 +1,25 @@
-// src/app/page.tsx
-
 'use client';
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-// import HeroImage from './../../public/landing-illustration.svg'; // Make sure this file exists in /public
 
 export default function LandingPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 flex flex-col">
-      {/* Header */}
-      <header className="flex justify-between items-center p-6 shadow-md bg-white">
-        <div className="text-2xl font-bold text-blue-600">Cliniko</div>
-        <nav className="flex gap-6 text-sm">
-          <a href="#explore" className="hover:text-blue-500">Explore</a>
-          <a href="#solutions" className="hover:text-blue-500">Solutions</a>
-          <a href="#about" className="hover:text-blue-500">About</a>
-          <a href="#blog" className="hover:text-blue-500">Blog</a>
-          <a href="/login" className="hover:text-blue-500">Log In</a>
-        </nav>
-        <div className="flex gap-2">
+    <div className="relative min-h-screen flex flex-col overflow-hidden bg-gradient-to-br from-blue-100 via-white to-blue-200 text-gray-800">
+      <header className="w-full flex justify-between items-center px-4 md:px-10 py-4 z-20 
+                         bg-white/30 backdrop-blur-md border-b border-white/20 shadow-sm">
+        <div className="text-3xl font-extrabold text-blue-600 font-sans">WellGo</div>
+        <div className="flex items-center gap-4 md:gap-6">
           <button
-            className="px-4 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50"
+            className="px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-sm md:text-base font-medium"
             onClick={() => router.push('/login')}
           >
             Sign In
           </button>
           <button
-            className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+            className="px-5 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200 text-sm md:text-base shadow-md font-medium"
             onClick={() => router.push('/register')}
           >
             Sign Up
@@ -37,50 +27,44 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Main Section */}
-      <main className="flex flex-col-reverse lg:flex-row items-center justify-between px-10 py-20 max-w-7xl mx-auto gap-12">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">Your Clinic, One Tap Away</h1>
-          <p className="mb-6 text-gray-600">
+      <main className="flex flex-1 flex-col-reverse lg:flex-row items-center justify-between
+                      px-4 md:px-10 py-6 md:py-0 relative z-10 w-full max-w-7xl mx-auto">
+        <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left
+                      w-full lg:w-2/5 xl:w-[45%] mt-8 md:mt-0 z-10 lg:pr-8 xl:pr-12">
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold mb-4 md:mb-6 text-gray-900 leading-tight">
+            Your Clinic, One Tap Away
+          </h1>
+          <p className="mb-6 md:mb-8 text-base md:text-lg text-gray-700 max-w-md">
             Book and manage clinic appointments instantly. Safe, reliable, and simple—anywhere in your city.
           </p>
-          <div className="flex gap-4">
+
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-12 md:mb-0 w-full sm:w-auto">
             <button
-              className="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-7 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200 text-base font-medium w-full sm:w-auto"
               onClick={() => router.push('/appointments')}
             >
               Book Appointment
             </button>
             <button
-              className="border border-gray-400 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-200 transition"
+              className="border border-gray-300 text-gray-700 px-7 py-3 rounded-full hover:bg-gray-100 transition-all duration-200 text-base font-medium w-full sm:w-auto"
             >
               Learn More
             </button>
           </div>
-
-          <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-            <div>
-              <p className="text-xl font-bold text-gray-800">10K+</p>
-              <p className="text-sm text-gray-500">Appointments</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold text-gray-800">4.8/5</p>
-              <p className="text-sm text-gray-500">Average Rating</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold text-gray-800">98%</p>
-              <p className="text-sm text-gray-500">Satisfied Patients</p>
-            </div>
-          </div>
         </div>
 
-        <div className="w-full max-w-xl">
-          {/* <Image
-            src= ''
-            alt="Landing Illustration"
-            className="w-full h-auto drop-shadow-xl"
-            priority
-          /> */}
+        <div className="relative flex-shrink-0
+                      w-full md:w-3/4 lg:w-3/5 xl:w-[55%]
+                      h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]
+                      mt-8 md:mt-0 pointer-events-none select-none">
+          <Image
+            src="/doctor-tablet-5.PNG"
+            alt="Doctor with tablet showing online booking calendar"
+            layout="fill"
+            objectFit="contain"
+            priority={true}
+            className="drop-shadow-2xl"
+          />
         </div>
       </main>
     </div>
