@@ -137,20 +137,20 @@ const AppointmentsPage = () => {
             <div className="md:hidden flex flex-col space-y-4">
               {appointments.map((appointment) => (
                 <div key={appointment.id} className="border rounded-lg p-4 shadow-sm bg-white">
-                  <p className="font-semibold">{appointment.Patient}</p>
+                  <p className="font-semibold">{appointment.patient}</p>
                   <p className="text-sm text-gray-600">
-                    {appointment.Date} at {appointment.Time}
+                    {appointment.date} at {appointment.time}
                   </p>
                   <span
                     className={`mt-2 inline-block text-xs font-medium px-2.5 py-0.5 rounded-full ${
-                      appointment.Status === 'Confirmed'
+                      appointment.status === 'Confirmed'
                         ? 'bg-blue-100 text-blue-800'
-                        : appointment.Status === 'Pending'
+                        : appointment.status === 'Pending'
                         ? 'bg-yellow-100 text-yellow-800'
                         : ''
                     }`}
                   >
-                    {appointment.Status}
+                    {appointment.status}
                   </span>
                 </div>
               ))}
